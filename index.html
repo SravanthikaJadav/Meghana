@@ -16,19 +16,35 @@
             --btn-hover: #ab47bc;
             --text-dark: #4a148c;
             --text-light: #fff;
+            --screen-bg: rgba(255, 255, 255, 0.45);
+            --screen-border: rgba(255, 255, 255, 0.6);
+            --background-focus: 52% 36%;
+        }
+
+        html {
+            min-height: 100%;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 24px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+            background-color: #f3e5f5;
+            background-image:
+                linear-gradient(135deg, rgba(243, 229, 245, 0.78), rgba(225, 190, 231, 0.72)),
+                url('images/image5.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center, var(--background-focus);
+            background-attachment: fixed;
             overflow: hidden;
             color: var(--text-dark);
+            box-sizing: border-box;
         }
 
         /* Ambient floating orbs for dynamic design */
@@ -78,14 +94,15 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            background: rgba(255, 255, 255, 0.45);
+            background: var(--screen-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 40px 30px;
             border-radius: 24px;
             box-shadow: 0 10px 40px rgba(155, 106, 156, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--screen-border);
             max-height: 85vh;
+            max-height: min(85vh, 85svh);
             overflow-y: auto;
             box-sizing: border-box;
         }
@@ -223,6 +240,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
             margin-top: 15px;
             margin-bottom: 10px;
         }
@@ -238,10 +256,21 @@
             position: relative;
         }
 
-        .polaroid:nth-child(1) { transform: rotate(-5deg) translateY(5px); }
-        .polaroid:nth-child(2) { transform: rotate(4deg) translateY(10px); }
-        .polaroid:nth-child(3) { transform: rotate(-3deg) translateY(5px); }
-        .polaroid:nth-child(4) { transform: rotate(6deg) translateY(10px); }
+        .polaroid:nth-child(1) {
+            transform: rotate(-5deg) translateY(5px);
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(4deg) translateY(10px);
+        }
+
+        .polaroid:nth-child(3) {
+            transform: rotate(-3deg) translateY(5px);
+        }
+
+        .polaroid:nth-child(4) {
+            transform: rotate(6deg) translateY(10px);
+        }
 
         .polaroid:hover {
             transform: scale(1.15) rotate(0deg);
@@ -417,6 +446,137 @@
                 transform: scale(1.2);
             }
         }
+
+        .button-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .screen-3 {
+            min-height: 420px;
+            justify-content: center;
+        }
+
+        .screen-4 {
+            overflow: visible;
+        }
+
+        .screen-6 {
+            padding: 20px;
+        }
+
+        .screen-title-sm {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .screen-title-tight {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .screen-title-glow {
+            color: #ab47bc;
+            text-shadow: 0 0 15px rgba(171, 71, 188, 0.4);
+            font-size: 2.8rem;
+        }
+
+        .question-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .quiz-success {
+            font-weight: 600;
+            color: #8e24aa;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .next-btn-lg {
+            padding: 16px 40px;
+            font-size: 1.3rem;
+        }
+
+        .no-message {
+            color: #d81b60;
+            font-size: 1rem;
+            font-weight: 600;
+            display: none;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .confetti-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .next-btn-emphasis {
+            margin-top: 40px;
+            transform: scale(1.1);
+        }
+
+        .video-frame {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .video-frame video {
+            width: 100%;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --background-focus: 54% 30%;
+            }
+
+            body {
+                padding: 16px;
+                background-attachment: scroll;
+            }
+
+            .screen {
+                width: 100%;
+                padding: 28px 20px;
+                gap: 16px;
+            }
+
+            h1,
+            .glowing-text,
+            .screen-title-glow,
+            .screen-title-sm,
+            .screen-title-tight {
+                font-size: 2rem;
+            }
+
+            p,
+            .letter-content {
+                font-size: 1rem;
+            }
+
+            .polaroid {
+                width: min(42vw, 140px);
+            }
+
+            .polaroid img {
+                height: 140px;
+            }
+
+            .option-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -454,57 +614,55 @@
                 <img src="./images/image4.jpeg" alt="Memory 4">
             </div>
         </div>
-        <div style="display: flex; gap: 15px; margin-top: 5px;">
+        <div class="button-row">
             <button onclick="nextScreen(2)">YES</button>
             <button onclick="handleNo()">NO</button>
         </div>
-        <p id="no-message"
-            style="color: #d81b60; font-size: 1rem; font-weight: 600; display: none; background: rgba(255,255,255,0.7); padding: 5px 15px; border-radius: 20px;">
+        <p id="no-message" class="no-message">
             Nice try, but you're seeing them anyway! 😉</p>
     </div>
 
     <!-- Screen 3 -->
-    <div class="screen" id="s3" style="min-height: 420px; justify-content: center;">
-        <h1 style="font-size: 2.2rem; margin-bottom: 20px;">Just a quick quiz...</h1>
+    <div class="screen screen-3" id="s3">
+        <h1 class="screen-title-sm">Just a quick quiz...</h1>
 
         <div id="q1" class="question-block show-content">
-            <p style="font-weight: 600; margin-bottom: 10px;">Your fav person in clg?</p>
-            <button class="option-btn" onclick="checkAnswer(this, 1, false)">Someone else</button>
+            <p class="question-label">Your fav person in clg?</p>
             <button class="option-btn" onclick="checkAnswer(this, 1, true)">Sravanthika</button>
-            <button class="option-btn" onclick="checkAnswer(this, 1, false)">Sravan</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, true)">Sravanthika</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, true)">Sravanthika</button>
         </div>
 
         <div id="q2" class="question-block hidden-content" style="display: none;">
-            <p style="font-weight: 600; margin-bottom: 10px;">Your best friend?</p>
+            <p class="question-label">Your best friend?</p>
             <button class="option-btn" onclick="checkAnswer(this, 2, false)">Others</button>
             <button class="option-btn" onclick="checkAnswer(this, 2, true)">Sravanthika</button>
         </div>
 
         <div id="q3" class="question-block hidden-content" style="display: none;">
-            <p style="font-weight: 600; margin-bottom: 10px;">Whom you like the most?</p>
-            <button class="option-btn" onclick="checkAnswer(this, 3, false)">Yourself</button>
+            <p class="question-label">Whom you like the most?</p>
+            <button class="option-btn" onclick="checkAnswer(this, 3, true)">Sravanthika</button>
             <button class="option-btn" onclick="checkAnswer(this, 3, true)">Sravanthika ❤️</button>
-            <button class="option-btn" onclick="checkAnswer(this, 3, false)">Dogs/Cats</button>
+            <button class="option-btn" onclick="checkAnswer(this, 3, true)">Sravanthika</button>
         </div>
 
         <div id="s3-next" class="hidden-content" style="display: none; width: 100%;">
-            <p style="font-weight: 600; color: #8e24aa; margin-bottom: 25px; font-size: 1.3rem;">Perfect! 💖</p>
-            <button onclick="nextScreen(3)" style="padding: 16px 40px; font-size: 1.3rem;">Proceed ✨</button>
+            <p class="quiz-success">Perfect! 💖</p>
+            <button class="next-btn-lg" onclick="nextScreen(3)">Proceed ✨</button>
         </div>
     </div>
 
     <!-- Screen 4 -->
-    <div class="screen" id="s4" style="overflow: visible;">
-        <h1 style="color: #ab47bc; text-shadow: 0 0 15px rgba(171, 71, 188, 0.4); font-size: 2.8rem;">Seems like
+    <div class="screen screen-4" id="s4">
+        <h1 class="screen-title-glow">Seems like
             Sravanthika is your fav person 💫</h1>
-        <div id="confetti-container"
-            style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
-        <button onclick="nextScreen(4)" style="margin-top: 40px; transform: scale(1.1);">Next 💌</button>
+        <div id="confetti-container" class="confetti-container"></div>
+        <button class="next-btn-emphasis" onclick="nextScreen(4)">Next 💌</button>
     </div>
 
     <!-- Screen 5 -->
     <div class="screen" id="s5">
-        <h1 style="font-size: 2.2rem; margin-bottom: 5px;">A special message for you...</h1>
+        <h1 class="screen-title-tight">A special message for you...</h1>
         <div class="letter-content">
             From the very first year of BTech till now, you’ve been more than just a friend to me. You stood by me when
             I felt alone, supported me when I needed it the most, and cared for me in ways no one else did. Honestly,
@@ -520,9 +678,15 @@
     </div>
 
     <!-- Screen 6 -->
-    <div class="screen" id="s6">
-        <h1 class="glowing-text">Once again,<br>Happy Birthday<br>Meghana 💜</h1>
-        <h1 style="font-size: 5rem; text-shadow: none; margin-top: 20px; animation: bounce 2s infinite;">🎂</h1>
+    <div class="screen screen-6" id="s6">
+        <h1 class="glowing-text screen-title-sm">Happy Birthday Meghana 💜</h1>
+        <div class="video-frame">
+            <video controls autoplay loop playsinline>
+                <!-- Video loaded from images directory -->
+                <source src="images/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 
     <script>
@@ -573,7 +737,7 @@
                     const currentQ = document.getElementById('q' + qNum);
                     currentQ.classList.remove('show-content');
                     currentQ.classList.add('hidden-content');
-                    
+
                     setTimeout(() => {
                         currentQ.style.display = 'none';
 
