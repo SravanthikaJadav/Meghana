@@ -687,6 +687,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+        <button onclick="restartToStart()">Back to Start</button>
     </div>
 
     <script>
@@ -712,6 +713,13 @@
                     createIntenseHearts();
                 }
             }, 800);
+        }
+
+        function restartToStart() {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById('s1').classList.add('active');
         }
 
         function handleNo() {
