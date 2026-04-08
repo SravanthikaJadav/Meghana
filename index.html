@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Meghana ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Pacifico&display=swap');
+
+        :root {
+            --primary: #9b6a9c;
+            --bg-grad-1: #f3e5f5;
+            --bg-grad-2: #e1bee7;
+            --btn-bg: #ce93d8;
+            --btn-hover: #ab47bc;
+            --text-dark: #4a148c;
+            --text-light: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+            overflow: hidden;
+            color: var(--text-dark);
+        }
+
+        /* Ambient floating orbs for dynamic design */
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(206, 147, 216, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -2;
+            animation: moveOrbs 10s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            top: -100px;
+            left: -100px;
+        }
+
+        body::after {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        @keyframes moveOrbs {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(50px, 50px) scale(1.2);
+            }
+        }
+
+        .screen {
+            position: absolute;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            pointer-events: none;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(155, 106, 156, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            max-height: 85vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        /* Hide scrollbar for neatness */
+        .screen::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screen {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .screen.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+            font-size: 2.5rem;
+            margin: 0;
+            color: #8e24aa;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin: 0;
+            color: #5e35b1;
+            font-weight: 400;
+        }
+
+        button {
+            background-color: var(--btn-bg);
+            color: var(--text-light);
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(206, 147, 216, 0.5);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Button shine effect */
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 200%;
+            }
+
+            100% {
+                left: 200%;
+            }
+        }
+
+        button:hover {
+            background-color: var(--btn-hover);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 25px rgba(171, 71, 188, 0.6);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Floating Hearts Animation */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10%;
+            font-size: 24px;
+            color: #ff80ab;
+            animation: floatUp linear forwards;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(255, 128, 171, 0.4));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateY(-10vh) rotate(10deg) scale(1);
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Polaroid Gallery */
+        .gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 8px 8px 30px 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: rotate(-4deg);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 120px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .polaroid:nth-child(1) { transform: rotate(-5deg) translateY(5px); }
+        .polaroid:nth-child(2) { transform: rotate(4deg) translateY(10px); }
+        .polaroid:nth-child(3) { transform: rotate(-3deg) translateY(5px); }
+        .polaroid:nth-child(4) { transform: rotate(6deg) translateY(10px); }
+
+        .polaroid:hover {
+            transform: scale(1.15) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 2px;
+            background: #eee;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Options for quiz */
+        .question-block {
+            width: 100%;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text-dark);
+            border: 2px solid #e1bee7;
+            display: block;
+            width: 85%;
+            margin: 12px auto;
+            padding: 12px 20px;
+        }
+
+        .option-btn::after {
+            display: none;
+        }
+
+        .option-btn:hover {
+            background: #f3e5f5;
+            border-color: var(--btn-bg);
+            transform: translateY(-2px);
+            color: var(--btn-hover);
+        }
+
+        .option-btn.selected {
+            background: #ab47bc;
+            color: white;
+            border-color: #ab47bc;
+            box-shadow: 0 0 20px rgba(171, 71, 188, 0.6);
+            animation: pulseGlow 1.5s infinite;
+            transform: scale(1.02);
+        }
+
+        .option-btn.wrong {
+            background: #ffcdd2;
+            border-color: #ef5350;
+            color: #c62828;
+            animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(171, 71, 188, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(171, 71, 188, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 10px rgba(171, 71, 188, 0.4);
+            }
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        .hidden-content {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s ease;
+        }
+
+        .show-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 16px;
+            background-color: #fce4ec;
+            opacity: 0;
+            border-radius: 4px;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-50vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(50vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .glowing-text {
+            color: #fff;
+            text-shadow: 0 0 10px #e040fb, 0 0 20px #e040fb, 0 0 30px #ab47bc, 0 0 40px #ab47bc;
+            font-size: 3rem;
+            line-height: 1.4;
+        }
+
+        .letter-content {
+            text-align: justify;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            color: #4a148c;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px dashed rgba(171, 71, 188, 0.4);
+        }
+
+        .sparkle {
+            animation: sparkleAnim 2s infinite;
+        }
+
+        @keyframes sparkleAnim {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Optional audio -->
+    <audio id="bg-music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <!-- Screen 1 -->
+    <div class="screen active" id="s1">
+        <h1>Happy Birthday Meghana <span class="sparkle">💗</span></h1>
+        <p>Today is all about celebrating you</p>
+        <button onclick="nextScreen(1)">Start the celebration ✨</button>
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="screen" id="s2">
+        <h1>Our beautiful memories</h1>
+        <p>You wanna see?</p>
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="./images/image1.jpeg" alt="Memory 1">
+            </div>
+            <div class="polaroid">
+                <img src="./images/image2.jpeg" alt="Memory 2">
+            </div>
+            <div class="polaroid">
+                <img src="./images/image3.jpeg" alt="Memory 3">
+            </div>
+            <div class="polaroid">
+                <img src="./images/image4.jpeg" alt="Memory 4">
+            </div>
+        </div>
+        <div style="display: flex; gap: 15px; margin-top: 5px;">
+            <button onclick="nextScreen(2)">YES</button>
+            <button onclick="handleNo()">NO</button>
+        </div>
+        <p id="no-message"
+            style="color: #d81b60; font-size: 1rem; font-weight: 600; display: none; background: rgba(255,255,255,0.7); padding: 5px 15px; border-radius: 20px;">
+            Nice try, but you're seeing them anyway! 😉</p>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="screen" id="s3" style="min-height: 420px; justify-content: center;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 20px;">Just a quick quiz...</h1>
+
+        <div id="q1" class="question-block show-content">
+            <p style="font-weight: 600; margin-bottom: 10px;">Your fav person in clg?</p>
+            <button class="option-btn" onclick="checkAnswer(this, 1, false)">Someone else</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, true)">Sravanthika</button>
+            <button class="option-btn" onclick="checkAnswer(this, 1, false)">Sravan</button>
+        </div>
+
+        <div id="q2" class="question-block hidden-content" style="display: none;">
+            <p style="font-weight: 600; margin-bottom: 10px;">Your best friend?</p>
+            <button class="option-btn" onclick="checkAnswer(this, 2, false)">Others</button>
+            <button class="option-btn" onclick="checkAnswer(this, 2, true)">Sravanthika</button>
+        </div>
+
+        <div id="q3" class="question-block hidden-content" style="display: none;">
+            <p style="font-weight: 600; margin-bottom: 10px;">Whom you like the most?</p>
+            <button class="option-btn" onclick="checkAnswer(this, 3, false)">Yourself</button>
+            <button class="option-btn" onclick="checkAnswer(this, 3, true)">Sravanthika ❤️</button>
+            <button class="option-btn" onclick="checkAnswer(this, 3, false)">Dogs/Cats</button>
+        </div>
+
+        <div id="s3-next" class="hidden-content" style="display: none; width: 100%;">
+            <p style="font-weight: 600; color: #8e24aa; margin-bottom: 25px; font-size: 1.3rem;">Perfect! 💖</p>
+            <button onclick="nextScreen(3)" style="padding: 16px 40px; font-size: 1.3rem;">Proceed ✨</button>
+        </div>
+    </div>
+
+    <!-- Screen 4 -->
+    <div class="screen" id="s4" style="overflow: visible;">
+        <h1 style="color: #ab47bc; text-shadow: 0 0 15px rgba(171, 71, 188, 0.4); font-size: 2.8rem;">Seems like
+            Sravanthika is your fav person 💫</h1>
+        <div id="confetti-container"
+            style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
+        <button onclick="nextScreen(4)" style="margin-top: 40px; transform: scale(1.1);">Next 💌</button>
+    </div>
+
+    <!-- Screen 5 -->
+    <div class="screen" id="s5">
+        <h1 style="font-size: 2.2rem; margin-bottom: 5px;">A special message for you...</h1>
+        <div class="letter-content">
+            From the very first year of BTech till now, you’ve been more than just a friend to me. You stood by me when
+            I felt alone, supported me when I needed it the most, and cared for me in ways no one else did. Honestly,
+            you’re not just my friend—you’re like a mother, a guide, and my biggest comfort.
+            <br><br>
+            I can never fully express how grateful I am for everything you’ve done for me, especially the love, care,
+            and even the sacrifices you made without expecting anything in return.
+            <br><br>
+            On your special day, I just want you to know that you mean the world to me. I’m really lucky to have you in
+            my life. I hope your life is filled with happiness, peace, and all the success you truly deserve.
+        </div>
+        <button onclick="nextScreen(5)" style="margin-top: 15px;">Open your gift 🎁</button>
+    </div>
+
+    <!-- Screen 6 -->
+    <div class="screen" id="s6">
+        <h1 class="glowing-text">Once again,<br>Happy Birthday<br>Meghana 💜</h1>
+        <h1 style="font-size: 5rem; text-shadow: none; margin-top: 20px; animation: bounce 2s infinite;">🎂</h1>
+    </div>
+
+    <script>
+        // Start background music on first interaction
+        let musicStarted = false;
+
+        function nextScreen(current) {
+            if (!musicStarted) {
+                const audio = document.getElementById('bg-music');
+                audio.volume = 0.4;
+                audio.play().catch(e => console.log('Audio play failed:', e));
+                musicStarted = true;
+            }
+
+            document.getElementById('s' + current).classList.remove('active');
+
+            setTimeout(() => {
+                document.getElementById('s' + (current + 1)).classList.add('active');
+
+                if (current + 1 === 4) {
+                    createConfetti();
+                } else if (current + 1 === 6) {
+                    createIntenseHearts();
+                }
+            }, 800);
+        }
+
+        function handleNo() {
+            const msg = document.getElementById('no-message');
+            msg.style.display = 'block';
+            msg.style.animation = 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both';
+            setTimeout(() => {
+                nextScreen(2);
+            }, 2000);
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, qNum, isCorrect) {
+            // Remove previous selections in this block
+            let siblings = btn.parentElement.querySelectorAll('.option-btn');
+            siblings.forEach(b => {
+                b.classList.remove('selected', 'wrong');
+            });
+
+            if (isCorrect) {
+                btn.classList.add('selected');
+                setTimeout(() => {
+                    const currentQ = document.getElementById('q' + qNum);
+                    currentQ.classList.remove('show-content');
+                    currentQ.classList.add('hidden-content');
+                    
+                    setTimeout(() => {
+                        currentQ.style.display = 'none';
+
+                        if (qNum < 3) {
+                            const nextQ = document.getElementById('q' + (qNum + 1));
+                            nextQ.style.display = 'block';
+                            void nextQ.offsetWidth;
+                            nextQ.classList.remove('hidden-content');
+                            nextQ.classList.add('show-content');
+                        } else {
+                            const nxtBtn = document.getElementById('s3-next');
+                            nxtBtn.style.display = 'block';
+                            void nxtBtn.offsetWidth;
+                            nxtBtn.classList.remove('hidden-content');
+                            nxtBtn.classList.add('show-content');
+                        }
+                    }, 400); // Wait for transition out
+                }, 600);
+            } else {
+                btn.classList.add('wrong');
+                // Remove the class after animation completes to allow retry animation
+                setTimeout(() => {
+                    btn.classList.remove('wrong');
+                }, 500);
+            }
+        }
+
+        // Floating Hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = ['💗', '💜', '✨', '💖', '🌸'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 4 + 5 + 's'; // 5s to 9s
+            heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+
+            document.getElementById('hearts-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 9000);
+        }
+
+        // Start baseline hearts immediately
+        setInterval(createHeart, 1200);
+        for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 300);
+
+        function createIntenseHearts() {
+            setInterval(createHeart, 300);
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        // Confetti for Screen 4
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            container.innerHTML = ''; // clear if any
+            const colors = ['#ce93d8', '#f8bbd0', '#e1bee7', '#ab47bc', '#ff80ab', '#ffffff'];
+
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-20px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animation = `confettiFall ${Math.random() * 2 + 2}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
+                    // Random rotations
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+                    container.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 60);
+            }
+        }
+
+        // Bouncing cake animation for final screen
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                40% { transform: translateY(-20px); }
+                60% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
